@@ -1,33 +1,39 @@
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+import Link from '@docusaurus/Link';
+import GeneratorContoh from '@site/src/components/GeneratorContoh';
 
-// Halaman placeholder untuk Generator. Komponen interaktif akan ditambahkan
-// pada fitur berikutnya; untuk saat ini halaman ini hanya memastikan rute
-// /generator tersedia sehingga tautan navbar tidak rusak saat build.
+// Halaman Generator Contoh Edukatif.
+//
+// Merender komponen interaktif <GeneratorContoh/> yang menampilkan contoh
+// terkurasi dari dataset statis (src/data/contohInjeksi). Tidak ada panggilan
+// jaringan atau model bahasa: seluruh contoh bersifat ilustratif dan
+// dipasangkan dengan mitigasinya, sesuai batasan keamanan proyek ini.
 export default function Generator() {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title="Generator"
-      description="Generator contoh edukatif untuk prompt injection dan tool poisoning">
+      title="Generator Contoh Edukatif"
+      description="Generator contoh edukatif terkurasi untuk prompt injection dan tool poisoning">
       <main className="container margin-vert--lg">
         <Heading as="h1">Generator Contoh Edukatif</Heading>
         <p>
-          Halaman ini akan menampilkan generator contoh edukatif dari kumpulan
-          data terkurasi (labeled examples) untuk kategori Direct Prompt
-          Injection, Indirect Prompt Injection, dan Tool Poisoning. Fitur
-          interaktifnya sedang disiapkan.
+          Halaman ini membantu Anda menjelajahi contoh serangan prompt injection
+          dan tool poisoning untuk tujuan pembelajaran defensif. Pilih salah satu
+          kategori (Direct Prompt Injection, Indirect Prompt Injection, atau Tool
+          Poisoning), lalu klik <strong>Tampilkan contoh</strong> untuk melihat
+          contoh terkurasi beserta penjelasan mengapa teknik itu berhasil dan
+          cara bertahan terhadapnya.
         </p>
         <p>
-          Sementara itu, silakan pelajari materinya di{' '}
-          <a href="/docs/pengantar">Pengantar</a>. Semua contoh bersifat
-          ilustratif untuk pembelajaran defensif dan selalu dipasangkan dengan
-          mitigasinya.
+          Semua contoh diambil dari kumpulan data statis yang telah dikurasi dan
+          bersifat ilustratif. Generator ini <strong>tidak</strong> membuat
+          payload baru, tidak mengoptimalkan serangan, dan tidak melakukan
+          panggilan ke jaringan maupun model bahasa apa pun. Untuk penjelasan
+          lengkap tiap teknik, baca materinya mulai dari{' '}
+          <Link to="/docs/pengantar">Pengantar</Link>.
         </p>
-        <p>
-          <em>{siteConfig.title}</em>
-        </p>
+
+        <GeneratorContoh />
       </main>
     </Layout>
   );
